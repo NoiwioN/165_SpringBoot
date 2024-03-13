@@ -38,4 +38,5 @@ public class ClimberService {
     public void deleteById(Long id){
         climberRepository.deleteById(id);
     }
+
 }
