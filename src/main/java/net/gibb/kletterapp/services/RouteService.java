@@ -1,7 +1,6 @@
 package net.gibb.kletterapp.services;
 
 import io.netty.handler.codec.EncoderException;
-import net.gibb.kletterapp.models.Ort;
 import net.gibb.kletterapp.models.Route;
 import net.gibb.kletterapp.repositories.RouteRepository;
 import org.springframework.stereotype.Service;
@@ -16,10 +15,18 @@ public class RouteService {
         this.routeRepository = routeRepository;
     }
     public List<Route> findAll() {
-        return routeRepository.findAll();
+        List<Route> routes = routeRepository.findAll();
+        for(Route r: routes){
+            r.setClimbers(routeRepository.findClimbersByRouteId(r.getId()));
+        }
+
+        return routes;
     }
     public Route findById(Long id) {
-        return routeRepository.findById(id).orElseThrow(EncoderException::new);
+        Route r=routeRepository.findById(id).orElseThrow(EncoderException::new);
+        System.out.println(routeRepository.findClimbersByRouteId(r.getId()).get(0).getAge());
+                r.setClimbers(routeRepository.findClimbersByRouteId(r.getId()));
+        return r;
     }
     public void update(Route route) {
         Iterable<Route> routen = findAll();

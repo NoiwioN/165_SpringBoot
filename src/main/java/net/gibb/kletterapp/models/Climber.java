@@ -7,14 +7,14 @@ import org.springframework.data.neo4j.core.schema.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO HAS_VISITED
 
 @Node
 public class Climber {
     @Id @GeneratedValue
     private Long id;
-/*    private Integer uid;*/
+
     private Integer wingspan;
+    private String username;
     private String name;
     private String proficiency;
     private String birthday;
@@ -31,6 +31,14 @@ public class Climber {
     private List<Ort> visitedPlaces=new ArrayList<>();
 
     public Climber() {
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Long getId() {

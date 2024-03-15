@@ -1,8 +1,9 @@
 package net.gibb.kletterapp.models;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Node
 public class Moderator {
@@ -11,6 +12,9 @@ public class Moderator {
     private Integer age;
     private String lastName;
     private String name;
+    @Relationship(type = "ADMINISTERS",direction = Relationship.Direction.OUTGOING)
+    private Ort moderatorOf ;
+
 
     public Moderator() {
     }
@@ -21,6 +25,14 @@ public class Moderator {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Ort getModeratorOf() {
+        return moderatorOf;
+    }
+
+    public void setModeratorOf(Ort moderatorOf) {
+        this.moderatorOf = moderatorOf;
     }
 
     public Integer getAge() {

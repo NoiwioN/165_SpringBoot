@@ -1,6 +1,7 @@
 package net.gibb.kletterapp.controllers;
 
 import net.gibb.kletterapp.models.Climber;
+import net.gibb.kletterapp.models.HAS_CLIMBED;
 import net.gibb.kletterapp.services.ClimberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -58,5 +59,13 @@ public class ClimberController {
         }
 
     }
-
+ /*   @GetMapping(path = "{id}/has_climbed")
+    public List<HAS_CLIMBED> findClimbedRelations(@PathVariable Long id){
+        return climberService.findClimbedRelations(id);
+    }
+    @DeleteMapping(path = "{id}/has_climbed/{id_relation}")
+    public void deleteHasClimbedById(@PathVariable Long id,@PathVariable Long id_relation){
+        climberService.deleteHasClimbedById(id_relation);
+    }
+*/
 }

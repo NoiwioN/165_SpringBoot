@@ -16,12 +16,26 @@ public class Route {
     private Integer moves;
     private String name;
     private String terrain;
-    @Relationship(type = "HAS_CLIMBED", direction = Relationship.Direction.INCOMING)
-    @JsonBackReference
+
 
     private List<Climber> climbers;
+    @Relationship(type = "LOCATED_IN", direction = Relationship.Direction.OUTGOING)
+    private Ort locatedIn;
     public Route() {
     }
+
+    public void setClimbers(List<Climber> climbers) {
+        this.climbers = climbers;
+    }
+
+    public Ort getLocatedIn() {
+        return locatedIn;
+    }
+
+    public void setLocatedIn(Ort locatedIn) {
+        this.locatedIn = locatedIn;
+    }
+
 
     public Long getId() {
         return id;
