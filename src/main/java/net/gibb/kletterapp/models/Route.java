@@ -1,9 +1,10 @@
 package net.gibb.kletterapp.models;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.types.Coordinate;
+
+import java.util.List;
 
 @Node
 public class Route {
@@ -15,7 +16,10 @@ public class Route {
     private Integer moves;
     private String name;
     private String terrain;
+    @Relationship(type = "HAS_CLIMBED", direction = Relationship.Direction.INCOMING)
+    @JsonBackReference
 
+    private List<Climber> climbers;
     public Route() {
     }
 
@@ -73,5 +77,9 @@ public class Route {
 
     public void setTerrain(String terrain) {
         this.terrain = terrain;
+    }
+
+    public List<Climber> getClimbers() {
+        return climbers;
     }
 }

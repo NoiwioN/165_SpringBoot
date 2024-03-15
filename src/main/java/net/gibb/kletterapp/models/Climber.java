@@ -1,15 +1,13 @@
 package net.gibb.kletterapp.models;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.data.neo4j.core.convert.ConvertWith;
+import org.springframework.data.neo4j.core.schema.*;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 //TODO HAS_VISITED
-//TODO HAS_CLIMBED
-//TODO FRIEND_REQUEST SENT
-//TODO FRIENDS
 
 @Node
 public class Climber {
@@ -22,6 +20,15 @@ public class Climber {
     private String birthday;
     private Integer age;
     private Integer height;
+    @Relationship(type="FRIENDS", direction = Relationship.Direction.OUTGOING)
+    @JsonBackReference
+    private List <Climber> friends = new ArrayList<>();
+    @Relationship(type="FRIENDREQUEST_SENT", direction = Relationship.Direction.OUTGOING)
+    private List <Climber> requestedFriends = new ArrayList<>();
+    @Relationship(type="HAS_CLIMBED", direction = Relationship.Direction.OUTGOING)
+    private List<Route> routes = new ArrayList<>();
+    @Relationship(type="HAS_VISITED", direction = Relationship.Direction.OUTGOING)
+    private List<Ort> visitedPlaces=new ArrayList<>();
 
     public Climber() {
     }
@@ -34,14 +41,13 @@ public class Climber {
         this.id = id;
     }
 
-
-/*    public Integer getUid() {
-        return uid;
+    public List<Ort> getVisitedPlaces() {
+        return visitedPlaces;
     }
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }*/
+    public void setVisitedPlaces(List<Ort> visitedPlaces) {
+        this.visitedPlaces = visitedPlaces;
+    }
 
     public String getBirthday() {
         return birthday;
@@ -89,5 +95,29 @@ public class Climber {
 
     public void setHeight(Integer height) {
         this.height = height;
+    }
+
+    public List<Climber> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<Climber> friends) {
+        this.friends = friends;
+    }
+
+    public void setRoutes(List<Route> routes) {
+        this.routes = routes;
+    }
+
+    public List<Route> getRoutes() {
+        return routes;
+    }
+
+    public List<Climber> getRequestedFriends() {
+        return requestedFriends;
+    }
+
+    public void setRequestedFriends(List<Climber> requestedFriends) {
+        this.requestedFriends = requestedFriends;
     }
 }
