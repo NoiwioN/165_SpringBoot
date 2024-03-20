@@ -10,7 +10,7 @@ import java.util.List;
 
 @Node
 public class Climber {
-    @Id @GeneratedValue
+    @Id
     private Long id;
 
     private Integer wingspan;
@@ -24,14 +24,18 @@ public class Climber {
     @JsonBackReference
     private List <Climber> friends = new ArrayList<>();
     @Relationship(type="FRIENDREQUEST_SENT", direction = Relationship.Direction.OUTGOING)
+    @JsonBackReference
     private List <Climber> requestedFriends = new ArrayList<>();
     @Relationship(type="HAS_CLIMBED", direction = Relationship.Direction.OUTGOING)
+    @JsonBackReference
     private List<Route> routes = new ArrayList<>();
     @Relationship(type="HAS_VISITED", direction = Relationship.Direction.OUTGOING)
+    @JsonBackReference
     private List<Ort> visitedPlaces=new ArrayList<>();
 
     public Climber() {
     }
+
 
     public String getUsername() {
         return username;

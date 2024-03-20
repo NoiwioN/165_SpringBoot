@@ -44,11 +44,5 @@ public class ClimberService {
         climberRepository.deleteById(id);
     }
 
-    public List<HAS_CLIMBED> findClimbedRelations(Long id){
-        return  hasClimbedRepository.findHAS_CLIMBEDByUserId(id);
-    }
-    public void deleteHasClimbedById (Long idRelation){
-        hasClimbedRepository.deleteById(idRelation);
-    }
 
 }

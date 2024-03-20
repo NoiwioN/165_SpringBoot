@@ -1,17 +1,14 @@
 package net.gibb.kletterapp.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.RelationshipProperties;
-import org.springframework.data.neo4j.core.schema.TargetNode;
 
-@RelationshipProperties
+
 public class HAS_CLIMBED {
-    @Id @GeneratedValue
+    @Id
     private Long id;
-    @TargetNode
-    private final Climber climber = new Climber();
+    private Long routeId;
+    private Long climberId;
     private String review;
     private boolean isFirstAscend;
     private String suggestedGrade;
@@ -20,9 +17,24 @@ public class HAS_CLIMBED {
     public HAS_CLIMBED() {
     }
 
-    public Climber getClimber() {
-        return climber;
+
+    public Long getRouteId() {
+        return routeId;
     }
+
+    public void setRouteId(Long routeId) {
+        this.routeId = routeId;
+    }
+
+
+    public Long getClimberId() {
+        return climberId;
+    }
+
+    public void setClimberId(Long climberId) {
+        this.climberId = climberId;
+    }
+
 
     public Double getRating() {
         return rating;
