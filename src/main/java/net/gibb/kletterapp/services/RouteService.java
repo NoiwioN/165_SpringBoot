@@ -23,7 +23,7 @@ public class RouteService {
         return routes;
     }
     public Route findById(Long id) {
-        Route r=routeRepository.findById(id).orElseThrow(EncoderException::new);
+        Route r=routeRepository.findById(id).orElseThrow();
         System.out.println(routeRepository.findClimbersByRouteId(r.getId()).get(0).getAge());
                 r.setClimbers(routeRepository.findClimbersByRouteId(r.getId()));
         return r;

@@ -10,7 +10,7 @@ import java.util.List;
 
 @Node
 public class Climber {
-    @Id
+    @Id @GeneratedValue
     private Long id;
 
     private Integer wingspan;

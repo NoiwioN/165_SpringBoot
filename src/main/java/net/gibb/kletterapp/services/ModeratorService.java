@@ -18,7 +18,7 @@ public class ModeratorService {
         return moderatorRepository.findAll();
     }
     public Moderator findById(Long id) {
-        return moderatorRepository.findById(id).orElseThrow(EncoderException::new);
+        return moderatorRepository.findById(id).orElseThrow();
     }
     public void update(Moderator moderator) {
         Iterable<Moderator> moderatoren = findAll();

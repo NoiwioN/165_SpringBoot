@@ -13,7 +13,7 @@ import java.util.List;
 
 @Node
 public class Ort {
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private Point address;
     private String goodConditionsEnd;

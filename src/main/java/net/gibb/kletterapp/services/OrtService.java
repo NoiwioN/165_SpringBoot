@@ -19,7 +19,7 @@ public class OrtService {
         return ortRepository.findAll();
     }
     public Ort findById(Long id) {
-        return ortRepository.findById(id).orElseThrow(EncoderException::new);
+        return ortRepository.findById(id).orElseThrow();
     }
     public void update(Ort ort) {
         Iterable<Ort> orte = findAll();

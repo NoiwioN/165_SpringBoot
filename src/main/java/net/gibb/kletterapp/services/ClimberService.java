@@ -2,9 +2,8 @@ package net.gibb.kletterapp.services;
 
 import io.netty.handler.codec.EncoderException;
 import net.gibb.kletterapp.models.Climber;
-import net.gibb.kletterapp.models.HAS_CLIMBED;
 import net.gibb.kletterapp.repositories.ClimberRepository;
-import net.gibb.kletterapp.repositories.HAS_CLIMBEDRepository;
+import net.gibb.kletterapp.repositories.relations.HAS_CLIMBEDRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -24,7 +23,7 @@ public class ClimberService {
     }
 
     public Climber findById(Long id) {
-        return climberRepository.findById(id).orElseThrow(EncoderException::new);
+        return climberRepository.findById(id).orElseThrow();
     }
     public void update(Climber climber) {
         Iterable<Climber> climbers = findAll();

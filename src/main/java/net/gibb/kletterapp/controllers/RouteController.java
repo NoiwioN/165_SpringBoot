@@ -31,7 +31,7 @@ public class RouteController {
     }
 
 
-    @PutMapping(consumes = "application/json")
+    @PutMapping(consumes = "application/json", path = "")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update( @RequestBody Route route) {
         try {
@@ -40,7 +40,7 @@ public class RouteController {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Benutzer konnte nicht aktualisiert werden");
         }
     }
-    @PostMapping(consumes = "application/json")
+    @PostMapping(consumes = "application/json", path="")
     @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody Route route){
         try {

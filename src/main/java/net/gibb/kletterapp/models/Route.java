@@ -8,7 +8,8 @@ import java.util.List;
 
 @Node
 public class Route {
-    @Id
+    @Id @GeneratedValue
+
     private Long id;
     private Coordinate coordinate;
     private String description;

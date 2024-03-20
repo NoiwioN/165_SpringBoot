@@ -7,7 +7,7 @@ import java.util.List;
 
 @Node
 public class Moderator {
-    @Id
+    @Id @GeneratedValue
     private Long id;
     private Integer age;
     private String lastName;

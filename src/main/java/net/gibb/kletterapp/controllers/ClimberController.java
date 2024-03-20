@@ -1,7 +1,6 @@
 package net.gibb.kletterapp.controllers;
 
 import net.gibb.kletterapp.models.Climber;
-import net.gibb.kletterapp.models.HAS_CLIMBED;
 import net.gibb.kletterapp.services.ClimberService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
