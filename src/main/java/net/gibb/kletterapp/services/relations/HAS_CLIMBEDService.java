@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Service
 
-public class Has_ClimbedService {
+public class HAS_CLIMBEDService {
     private final HAS_CLIMBEDRepository hasClimbedRepository;
 
 
-    public Has_ClimbedService(HAS_CLIMBEDRepository hasClimbedRepository) {
+    public HAS_CLIMBEDService(HAS_CLIMBEDRepository hasClimbedRepository) {
         this.hasClimbedRepository = hasClimbedRepository;
     }
 

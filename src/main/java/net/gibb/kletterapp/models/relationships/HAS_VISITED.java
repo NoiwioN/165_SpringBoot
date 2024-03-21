@@ -5,8 +5,9 @@ import org.springframework.data.neo4j.core.schema.Id;
 public class HAS_VISITED {
     @Id
     private Long id;
-    private long climberId;
-    private long ortIt;
+    private Long climberId;
+    private Long ortId;
+    private Integer times;
 
     public HAS_VISITED() {
     }
@@ -19,19 +20,27 @@ public class HAS_VISITED {
         this.id = id;
     }
 
-    public long getClimberId() {
+    public Long getClimberId() {
         return climberId;
     }
 
-    public void setClimberId(long climberId) {
+    public void setClimberId(Long climberId) {
         this.climberId = climberId;
     }
 
-    public long getOrtIt() {
-        return ortIt;
+    public Long getOrtId() {
+        return ortId;
     }
 
-    public void setOrtIt(long ortIt) {
-        this.ortIt = ortIt;
+    public void setOrtId(Long ortId) {
+        this.ortId = ortId;
+    }
+
+    public Integer getTimes() {
+        return times;
+    }
+
+    public void setTimes(Integer times) {
+        this.times = times;
     }
 }
