@@ -1,7 +1,7 @@
 package net.gibb.kletterapp.services.relations;
 
 import net.gibb.kletterapp.models.Climber;
-import net.gibb.kletterapp.models.HAS_CLIMBED;
+import net.gibb.kletterapp.models.relationships.HAS_CLIMBED;
 import net.gibb.kletterapp.repositories.relations.HAS_CLIMBEDRepository;
 import org.springframework.stereotype.Service;
 

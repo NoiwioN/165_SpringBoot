@@ -1,7 +1,7 @@
 package net.gibb.kletterapp.repositories.relations;
 
 import net.gibb.kletterapp.models.Climber;
-import net.gibb.kletterapp.models.HAS_CLIMBED;
+import net.gibb.kletterapp.models.relationships.HAS_CLIMBED;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.stereotype.Repository;

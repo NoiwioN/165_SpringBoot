@@ -1,4 +1,4 @@
-package net.gibb.kletterapp.models;
+package net.gibb.kletterapp.models.relationships;
 
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;

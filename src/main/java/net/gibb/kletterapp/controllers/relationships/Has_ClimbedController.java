@@ -1,6 +1,6 @@
 package net.gibb.kletterapp.controllers.relationships;
 
-import net.gibb.kletterapp.models.HAS_CLIMBED;
+import net.gibb.kletterapp.models.relationships.HAS_CLIMBED;
 import net.gibb.kletterapp.services.relations.Has_ClimbedService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
