@@ -1,6 +1,5 @@
 package net.gibb.kletterapp.controllers.relationships;
 
-import net.gibb.kletterapp.models.relationships.HAS_VISITED;
 import net.gibb.kletterapp.models.relationships.LOCATED_IN;
 import net.gibb.kletterapp.services.relations.LOCATED_INService;
 import org.springframework.http.HttpStatus;
@@ -20,7 +19,7 @@ public class LOCATED_INController {
     }
 
     @GetMapping
-    public List<LOCATED_IN> findById() {
+    public List<LOCATED_IN> findAll() {
         return locatedInService.findAll();
     }
 

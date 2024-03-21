@@ -1,7 +1,9 @@
 package net.gibb.kletterapp.controllers.relationships;
 
+import net.gibb.kletterapp.models.relationships.ADMINISTERS;
 import net.gibb.kletterapp.models.relationships.HAS_VISITED;
-import net.gibb.kletterapp.services.relations.HAS_VISITEDService;
+import net.gibb.kletterapp.repositories.relations.ADMINISTERSRepository;
+import net.gibb.kletterapp.services.relations.ADMINISTERSService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -10,23 +12,22 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/has_visited")
-public class HAS_VISITEDController {
-    private final HAS_VISITEDService hasVisitedService;
+@RequestMapping(path = "/administers")
+public class ADMINISTERSController {
+    private final ADMINISTERSService administersService;
 
-    public HAS_VISITEDController(HAS_VISITEDService hasVisitedService) {
-        this.hasVisitedService = hasVisitedService;
+    public ADMINISTERSController(ADMINISTERSService administersService) {
+        this.administersService = administersService;
     }
-
     @GetMapping
-    public List<HAS_VISITED> findAll() {
-        return hasVisitedService.findAll();
+    public List<ADMINISTERS> findAll() {
+        return administersService.findAll();
     }
 
     @GetMapping(path = "{id}")
-    public HAS_VISITED findById(@PathVariable Long id) {
+    public ADMINISTERS findById(@PathVariable Long id) {
         try {
-            return hasVisitedService.findById(id);
+            return administersService.findById(id);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -35,25 +36,25 @@ public class HAS_VISITEDController {
     @DeleteMapping(path = "{id}")
     public void deleteById(@PathVariable Long id) {
         try {
-            hasVisitedService.delete(id);
+            administersService.delete(id);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
 
     @PutMapping(consumes = "application/json", path = "{id}")
-    public void update(@PathVariable Long id, @RequestBody HAS_VISITED hasVisited) {
+    public void update(@PathVariable Long id, @RequestBody ADMINISTERS administers) {
         try {
-            hasVisitedService.update(id, hasVisited);
+            administersService.update(id, administers);
         } catch (NoSuchElementException e) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
     }
 
     @PostMapping(consumes = "application/json")
-    public void create(@RequestBody HAS_VISITED hasVisited) {
+    public void create(@RequestBody ADMINISTERS administers) {
 
-        hasVisitedService.create(hasVisited);
+        administersService.create(administers);
 
     }
 }
