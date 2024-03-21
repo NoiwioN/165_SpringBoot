@@ -5,7 +5,7 @@ import org.springframework.data.neo4j.core.schema.Id;
 
 
 public class HAS_CLIMBED {
-    @Id @GeneratedValue
+    @Id
     private Long id;
     private Long routeId;
     private Long climberId;

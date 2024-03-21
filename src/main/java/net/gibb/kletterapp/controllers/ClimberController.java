@@ -40,7 +40,7 @@ public class ClimberController {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Benutzer konnte nicht aktualisiert werden");
         }
     }
-    @PostMapping(consumes = "application/json")
+    @PostMapping(consumes = "application/json; charset=UTF-8")
     @ResponseStatus(HttpStatus.CREATED)
     public void create (@RequestBody Climber climber){
         try {

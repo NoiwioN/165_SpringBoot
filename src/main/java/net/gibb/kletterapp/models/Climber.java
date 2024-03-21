@@ -21,16 +21,16 @@ public class Climber {
     private Integer age;
     private Integer height;
     @Relationship(type="FRIENDS", direction = Relationship.Direction.OUTGOING)
-    @JsonBackReference
+    @JsonBackReference(value = "FRIENDS-C")
     private List <Climber> friends = new ArrayList<>();
     @Relationship(type="FRIENDREQUEST_SENT", direction = Relationship.Direction.OUTGOING)
-    @JsonBackReference
+    @JsonBackReference(value = "FRIENDREQUEST_SENT-C")
     private List <Climber> requestedFriends = new ArrayList<>();
     @Relationship(type="HAS_CLIMBED", direction = Relationship.Direction.OUTGOING)
-    @JsonBackReference
+    @JsonBackReference(value = "HAS_CLIMBED-C")
     private List<Route> routes = new ArrayList<>();
     @Relationship(type="HAS_VISITED", direction = Relationship.Direction.OUTGOING)
-    @JsonBackReference
+    @JsonBackReference(value = "HAS_VISITED-C")
     private List<Ort> visitedPlaces=new ArrayList<>();
 
     public Climber() {

@@ -1,6 +1,7 @@
 package net.gibb.kletterapp.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.neo4j.driver.types.Point;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
@@ -15,18 +16,19 @@ import java.util.List;
 public class Ort {
     @Id @GeneratedValue
     private Long id;
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY, value = "address")
     private Point address;
     private String goodConditionsEnd;
     private String goodConditionsStart;
     private String name;
     @Relationship(type = "HAS_VISITED", direction = Relationship.Direction.INCOMING)
-    @JsonBackReference
+    @JsonBackReference(value = "HAS_VISITED-O")
     private List<Climber> visitedBy = new ArrayList<>();
     @Relationship(type="LOCATED_IN",direction = Relationship.Direction.INCOMING)
-    @JsonBackReference
+    @JsonBackReference(value = "LOCATED_IN-O")
     private List<Route> routes= new ArrayList<>();
     @Relationship (type = "ADMINISTERS", direction = Relationship.Direction.INCOMING)
-    @JsonBackReference
+    @JsonBackReference(value = "ADMINISTERS-O")
     private Moderator moderator;
 
     public Ort() {
